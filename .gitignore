@@ -1,0 +1,4 @@
+/.venv
+/target
+/resources/*.json
+/resources/*.bin
