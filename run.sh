@@ -18,3 +18,6 @@ print_in_blue "Proving the project..." && \
 
 print_in_blue "Verifying the project..." && \
 ./scripts/stone-verify.sh
+
+print_in_blue "Parsing the proof..." && \
+./scripts/parse.sh
