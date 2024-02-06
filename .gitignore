@@ -2,3 +2,5 @@
 /target
 /resources/*.json
 /resources/*.bin
+!/resources/cpu_air_params.json
+!/resources/cpu_air_prover_config.json
