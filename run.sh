@@ -3,4 +3,5 @@
 ./scripts/build.sh && \
 ./scripts/compile.sh && \
 ./scripts/run.sh && \
-./scripts/prove.sh
+./scripts/stone-prove.sh && \
+./scripts/stone-verify.sh
