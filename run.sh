@@ -5,22 +5,22 @@ print_in_blue() {
 }
 
 print_in_blue "Building the prover..." && \
-./scripts/build.sh && \
+time ./scripts/build.sh && \
 
 print_in_blue "Compiling the program..." && \
-./scripts/compile.sh && \
+time ./scripts/compile.sh && \
 
 print_in_blue "Running the program..." && \
-./scripts/run.sh && \
+time ./scripts/run.sh && \
 
 print_in_blue "Proving the program..." && \
-./scripts/stone-prove.sh && \
+time ./scripts/stone-prove.sh && \
 
 print_in_blue "Verifying the proof with Stone Prover..." && \
-./scripts/stone-verify.sh
+time ./scripts/stone-verify.sh && \
 
 print_in_blue "Parsing the proof..." && \
-./scripts/parse.sh
+time ./scripts/parse.sh && \
 
 print_in_blue "Verifying the proof with Cairo Verifier..." && \
-./scripts/cairo-verify.sh
+time ./scripts/cairo-verify.sh
