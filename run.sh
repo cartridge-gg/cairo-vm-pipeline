@@ -7,6 +7,9 @@ print_in_blue() {
 print_in_blue "Building the prover..." && \
 time ./scripts/build.sh && \
 
+print_in_blue "Building the cairo verifier..." && \
+time (cd cairo-verifier && scarb build && cd ..) \
+
 print_in_blue "Compiling the program..." && \
 time ./scripts/compile.sh && \
 

@@ -12,6 +12,7 @@ What things you need to run the project:
 
 - Git
 - asdf
+- podman
 
 ### Installation
 
@@ -36,8 +37,17 @@ git submodule update --init --recursive
 python -m venv .venv
 ```
 
-4. Run the script:
+4. If podman does not pull the image, you can try to specify `docker.io` as follow:
+
+```bash
+# Pulls the image required by stone-prover:
+podman pull docker.io/ciimage/python:3.9
+```
+
+5. Run the script:
 
 ```bash
 ./run.sh
 ```
+
+A cleanup script is available in `./scripts` to teardown generated files and reinitialize submodules.
