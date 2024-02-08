@@ -1,5 +1,6 @@
 /.venv
-/target
+**/target
+**/Cargo.lock
 /resources
 !/resources/main.cairo
 !/resources/cpu_air_params.json
