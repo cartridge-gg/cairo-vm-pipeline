@@ -52,4 +52,4 @@ podman pull docker.io/ciimage/python:3.9
 ./run.sh
 ```
 
-A cleanup script is available in `./scripts` to teardown generated files.
+A cleanup script is available in `./scripts` to teardown generated files and reinitialize submodules.

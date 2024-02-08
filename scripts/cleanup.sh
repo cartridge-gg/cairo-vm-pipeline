@@ -8,3 +8,7 @@ print_in_yellow() {
 
 print_in_yellow "Cleaning up resources..."
 rm -rf resources/!(main.cairo|cpu_air_params.json|cpu_air_prover_config.json)
+
+print_in_yellow "Cleaning submodules..."
+git submodule deinit -f .
+git submodule update --init
