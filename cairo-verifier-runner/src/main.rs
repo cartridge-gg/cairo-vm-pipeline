@@ -7,23 +7,19 @@ use cairo_proof_parser::parse;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
-enum Cli {
-    Parse,
-    Verify {
-        /// Path to compiled sierra file
-        target: String,
-    },
+struct Cli {
+    /// Path to compiled sierra file
+    target: String,
 }
 
 fn main() -> anyhow::Result<()> {
+    let args = Cli::parse();
     let mut input = String::new();
     stdin().read_to_string(&mut input)?;
     let exprs = parse(input)?.to_string();
 
-    match Cli::parse() {
-        Cli::Parse => println!("{}", exprs),
-        Cli::Verify { target } => println!("{:?}", run(exprs, target)?),
-    }
+    let result = run(exprs, args.target)?;
+    println!("{result:?}");
 
     Ok(())
 }
