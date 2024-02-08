@@ -36,8 +36,20 @@ git submodule update --init --recursive
 python -m venv .venv
 ```
 
-4. Run the script:
+4. Install some dependencies:
+
+```bash
+# Podman to manage containers in scripts:
+apt install podman
+
+# Pulls the image required by stone-prover:
+podman pull docker.io/ciimage/python:3.9
+```
+
+5. Run the script:
 
 ```bash
 ./run.sh
 ```
+
+A cleanup script is available in `./scripts` to teardown generated files.
