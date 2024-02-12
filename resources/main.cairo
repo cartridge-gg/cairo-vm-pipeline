@@ -12,19 +12,23 @@
 // See the License for the specific language governing permissions
 // and limitations under the License.
 
-%builtins output
-func main{output_ptr: felt*}() {
+%builtins output pedersen range_check ecdsa bitwise ec_op keccak poseidon
+func main{
+    output_ptr: felt*, pedersen_ptr: felt*, range_check_ptr: felt*, ecdsa_ptr: felt*,
+    bitwise_ptr: felt*, ec_op_ptr: felt*, keccak_ptr: felt*, poseidon_ptr: felt*
+}() -> () {
     alloc_locals;
 
     // Load fibonacci_claim_index and copy it to the output segment.
-    local fibonacci_claim_index = 10;
+    local fibonacci_claim_index;
+    %{ ids.fibonacci_claim_index = program_input['fibonacci_claim_index'] %}
 
     assert output_ptr[0] = fibonacci_claim_index;
     let res = fib(1, 1, fibonacci_claim_index);
     assert output_ptr[1] = res;
+    let output_ptr = output_ptr + 2;
 
     // Return the updated output_ptr.
-    let output_ptr = &output_ptr[2];
     return ();
 }
 
