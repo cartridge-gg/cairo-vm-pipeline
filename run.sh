@@ -18,3 +18,9 @@ time ./scripts/stone-prove.sh && \
 
 print_in_blue "Verifying the proof with Stone Prover..." && \
 time ./scripts/stone-verify.sh
+
+print_in_blue "Parsing the proof..." && \
+time ./scripts/parse.sh
+
+print_in_blue "Verifying the proof with Cairo Verifier..." && \
+time ./scripts/cairo-verify.sh
