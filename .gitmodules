@@ -3,7 +3,7 @@
 	url = git@github.com:HerodotusDev/cairo-verifier.git
 [submodule "sandstorm"]
 	path = sandstorm
-	url = git@github.com:ZeroSync/sandstorm.git
+	url = git@github.com:cartridge-gg/sandstorm.git
 [submodule "header_chain_parser"]
 	path = header_chain_parser
-	url = git@github.com:ZeroSync/header_chain_parser.git
+	url = git@github.com:cartridge-gg/header_chain_parser.git
