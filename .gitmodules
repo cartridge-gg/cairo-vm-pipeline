@@ -1,6 +1,6 @@
 [submodule "cairo-verifier"]
 	path = cairo-verifier
 	url = git@github.com:HerodotusDev/cairo-verifier.git
-[submodule "stone-prover"]
-	path = stone-prover
-	url = git@github.com:neotheprogramist/stone-prover.git
+[submodule "sandstorm"]
+	path = sandstorm
+	url = git@github.com:ZeroSync/sandstorm.git
