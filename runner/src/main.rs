@@ -5,6 +5,7 @@ use std::{
 
 use cairo_args_runner::{run, Arg, Felt252};
 use clap::Parser;
+use num_bigint::BigUint;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -29,8 +30,18 @@ fn execute(parsed: Vec<String>, target: String) -> anyhow::Result<Vec<Felt252>> 
     let function = "main";
 
     let parsed = parsed.into_iter().map(|x| {
-        let n = num_bigint::BigUint::from_str(&x).unwrap();
-        Felt252::from_bytes_be(&n.to_bytes_be())
+        if let Some(stripped) = x.strip_prefix("0x") {
+            if stripped.len() % 2 == 0 {
+                let n: Vec<u8> = prefix_hex::decode(format!("0x{}", stripped)).unwrap();
+                Felt252::from_bytes_be(&n)
+            } else {
+                let n: Vec<u8> = prefix_hex::decode(format!("0x0{}", stripped)).unwrap();
+                Felt252::from_bytes_be(&n)
+            }
+        } else {
+            let n = BigUint::from_str(&x).unwrap();
+            Felt252::from_bytes_be(&n.to_bytes_be())
+        }
     });
 
     Ok(run(&target, function, &[Arg::Array(parsed.collect())])?)
