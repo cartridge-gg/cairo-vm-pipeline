@@ -14,7 +14,8 @@
 
 %builtins output pedersen range_check bitwise
 func main{
-    output_ptr: felt*, pedersen_ptr: felt*, range_check_ptr: felt*, bitwise_ptr: felt*
+    output_ptr: felt*, pedersen_ptr: felt*, range_check_ptr: felt*,
+    bitwise_ptr: felt*
 }() -> () {
     alloc_locals;
 

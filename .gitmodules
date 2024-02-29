@@ -7,3 +7,6 @@
 [submodule "header_chain_parser"]
 	path = header_chain_parser
 	url = git@github.com:cartridge-gg/header_chain_parser.git
+[submodule "cairo-lang"]
+	path = cairo-lang
+	url = git@github.com:Okm165/cairo-lang.git

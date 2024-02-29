@@ -1,5 +1,5 @@
 /.venv
-/target
+**/target
 /resources
 !/resources/main.cairo
 !/resources/cpu_air_params.json
