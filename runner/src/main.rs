@@ -1,10 +1,10 @@
-use std::io::{stdin, Read};
+use std::{
+    io::{stdin, Read},
+    str::FromStr,
+};
 
-use cairo_args_runner::{Arg, Felt252, VecFelt252};
+use cairo_args_runner::{run, Arg, Felt252};
 use clap::Parser;
-
-use cairo_proof_parser::parse;
-use itertools::{chain, Itertools};
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -17,38 +17,21 @@ fn main() -> anyhow::Result<()> {
     let args = Cli::parse();
     let mut input = String::new();
     stdin().read_to_string(&mut input)?;
+    let parsed: Vec<String> = serde_json::from_str(&input)?;
 
-    let result = run(input, args.target)?;
+    let result = execute(parsed, args.target)?;
     println!("{result:?}");
 
     Ok(())
 }
 
-fn run(input: String, target: String) -> anyhow::Result<Vec<Felt252>> {
-    let target = target;
+fn execute(parsed: Vec<String>, target: String) -> anyhow::Result<Vec<Felt252>> {
     let function = "main";
-    let parsed = parse(input)?;
 
-    // let config: VecFelt252 = serde_json::from_str(&parsed.config.to_string())?;
-    // let public_input: VecFelt252 = serde_json::from_str(&parsed.public_input.to_string())?;
-    // let unsent_commitment: VecFelt252 =
-    //     serde_json::from_str(&parsed.unsent_commitment.to_string())?;
-    // let witness: VecFelt252 = serde_json::from_str(&parsed.witness.to_string())?;
+    let parsed = parsed.into_iter().map(|x| {
+        let n = num_bigint::BigUint::from_str(&x).unwrap();
+        Felt252::from_bytes_be(&n.to_bytes_be())
+    });
 
-    // let proof = chain!(
-    //     config.to_vec(),
-    //     public_input.to_vec(),
-    //     unsent_commitment.to_vec(),
-    //     witness.to_vec()
-    // )
-    // .collect_vec();
-
-    // println!("{:?}", proof);
-
-    // Ok(cairo_args_runner::run(
-    //     &target,
-    //     function,
-    //     &[Arg::Array(proof)],
-    // )?)
-    Ok(vec![])
+    Ok(run(&target, function, &[Arg::Array(parsed.collect())])?)
 }
