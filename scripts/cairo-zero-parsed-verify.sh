@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-print_in_blue() {
-    echo -e "\033[1;34m$1\033[0m"
-}
-
-print_in_blue "Running cairo program..." && \
 cd cairo-lang && \
 cairo-run \
     --program=../resources/verify_compiled.json \

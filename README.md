@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to run the project:
 
-- Git
+- git
 - asdf
 
 ### Installation
@@ -20,8 +20,8 @@ A step by step series of examples that tell you how to get a development environ
 1. Clone the repository and navigate into the directory:
 
 ```bash
-git clone <repository-url>
-cd <repository-name>
+git clone git@github.com:cartridge-gg/cairo-vm-pipeline.git
+cd cairo-vm-pipeline
 ```
 
 2. Clone the repository and navigate into the directory:
@@ -30,14 +30,14 @@ cd <repository-name>
 git submodule update --init --recursive
 ```
 
-3. Create a virtual environment:
+3. Generate necessary files:
 
 ```bash
-python -m venv .venv
+./run.sh
 ```
 
 4. Run the script:
 
 ```bash
-./run.sh
+./scripts/cairo-zero-parsed-verify.sh
 ```

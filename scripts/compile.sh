@@ -12,7 +12,7 @@ cairo-compile \
   --proof_mode && \
 print_in_blue "Compiling verify program..." && \
 cairo-compile \
-  --cairo_path=./cairo-lang/src \
+  --cairo_path ./cairo-lang/src \
   resources/verify.cairo \
   --output resources/verify_compiled.json \
   --proof_mode && \
