@@ -9,7 +9,7 @@ cargo run -p sandstorm-cli -r -F parallel -- \
     --fri-folding-factor 8 \
     --fri-max-remainder-coeffs 128 \
     --lde-blowup-factor 4 \
-    --num-queries 18 \
+    --num-queries 48 \
     --output ../resources/main_proof.bin \
     --proof-of-work-bits 30 && \
 cd ..
