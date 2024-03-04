@@ -7,13 +7,8 @@ print_in_blue() {
 source .venv/bin/activate && \
 print_in_blue "Compiling main program..." && \
 cairo-compile \
-  resources/main.cairo \
+  --proof_mode \
+  --cairo_path cairo-lang/src \
   --output resources/main_compiled.json \
-  --proof_mode && \
-print_in_blue "Compiling verify program..." && \
-cairo-compile \
-  --cairo_path ./cairo-lang/src \
-  resources/verify.cairo \
-  --output resources/verify_compiled.json \
-  --proof_mode && \
+  resources/main.cairo && \
 deactivate

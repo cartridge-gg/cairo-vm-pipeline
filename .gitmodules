@@ -1,6 +1,3 @@
-[submodule "cairo-verifier"]
-	path = cairo-verifier
-	url = git@github.com:HerodotusDev/cairo-verifier.git
 [submodule "sandstorm"]
 	path = sandstorm
 	url = git@github.com:cartridge-gg/sandstorm.git
@@ -9,4 +6,7 @@
 	url = git@github.com:cartridge-gg/header_chain_parser.git
 [submodule "cairo-lang"]
 	path = cairo-lang
-	url = git@github.com:Okm165/cairo-lang.git
+	url = git@github.com:cartridge-gg/cairo-lang.git
+[submodule "cairo-verifier"]
+	path = cairo-verifier
+	url = git@github.com:cartridge-gg/cairo-verifier.git

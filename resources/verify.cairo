@@ -1,6 +1,6 @@
 from starkware.cairo.common.alloc import alloc
 from starkware.cairo.common.cairo_builtins import BitwiseBuiltin, HashBuiltin
-from starkware.cairo.cairo_verifier.layouts.all_cairo.cairo_verifier import verify_cairo_proof
+from starkware.cairo.cairo_verifier.layouts.recursive.cairo_verifier import verify_cairo_proof
 from starkware.cairo.stark_verifier.core.stark import StarkProof
 
 func main{
